@@ -205,12 +205,14 @@ public class MvelConstraint extends MutableTypeConstraint implements IndexableCo
                     boolean mvelValue = forceJitEvaluator(object, workingMemory, leftTuple);
                 }
             }
-
+            boolean result = conditionEvaluator.evaluate(object, workingMemory, leftTuple);
             if (!isDynamic && invocationCounter.getAndIncrement() == JIT_THRESOLD) {
                 jitEvaluator(object, workingMemory, leftTuple);
             }
+            return result;
+        }else{
+            return conditionEvaluator.evaluate(object, workingMemory, leftTuple);
         }
-        return conditionEvaluator.evaluate(object, workingMemory, leftTuple);
     }
 
     protected void createMvelConditionEvaluator(InternalWorkingMemory workingMemory) {
