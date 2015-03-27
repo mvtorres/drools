@@ -10,6 +10,7 @@
     <!-- relativePath causes out-of-date problems on hudson slaves -->
     <!--<relativePath>../droolsjbpm-build-bootstrap/pom.xml</relativePath>-->
   </parent>
+  <version>5.5.0.Final.rfc.1</version>
 
   <groupId>org.drools</groupId>
   <!-- TODO rename to drools once parent pom has been moved -->
